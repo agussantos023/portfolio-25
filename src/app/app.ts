@@ -16,6 +16,7 @@ import { HighlightPipe } from './shared/pipes/highlight-pipe';
 import { CardStudy } from './sections/about-me/card-study-c/card-study-interface';
 import { CardStudyC } from './sections/about-me/card-study-c/card-study-c';
 import { TitleFooterArrowWrapperC } from './sections/footer/title-footer-arrow-wrapper-c/title-footer-arrow-wrapper-c';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,7 @@ import { TitleFooterArrowWrapperC } from './sections/footer/title-footer-arrow-w
     HighlightPipe,
     CardStudyC,
     TitleFooterArrowWrapperC,
+    TitleCasePipe,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -111,6 +113,11 @@ export class App {
     },
   ]);
 
+  learningData = signal<StackCard>({
+    title: 'aprendiendo',
+    nameIcons: ['vitest', 'mongodb', 'postgresql', 'tauri'],
+  });
+
   stackData = signal<StackCard[]>([
     {
       title: 'frontend',
@@ -132,22 +139,12 @@ export class App {
       nameIcons: ['node', 'express', 'mysql', 'php', 'laravel', 'codeigniter', 'jwt', 'json'],
     },
     {
-      title: 'aprendiendo',
-      nameIcons: ['docker', 'jest', 'mongodb', 'electron'],
+      title: 'devops',
+      nameIcons: ['docker', 'git', 'github', 'dokploy', 'netlify'],
     },
     {
       title: 'herramientas',
-      nameIcons: [
-        'vscode',
-        'git',
-        'github',
-        'xampp',
-        'laragon',
-        'postman',
-        'clickup',
-        'trello',
-        'penpot',
-      ],
+      nameIcons: ['vscode', 'xampp', 'laragon', 'postman', 'trello', 'penpot', 'figma', 'obsidian'],
     },
   ]);
 

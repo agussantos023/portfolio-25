@@ -64,6 +64,20 @@
         @for (card of stackData(); track card.title) {
           <app-stack-card-c [dataCard]="card" />
         }
+
+        <div
+          class="bg-second-c p-4 col-span-2 rounded-md flex flex-col md:flex-row items-center justify-center gap-6 hover:scale-105 duration-400 ease-out"
+        >
+          <h4 class="text-text-c font-winky-f font-bold md:text-xl">
+            {{ learningData().title | titlecase }}
+          </h4>
+
+          <div class="flex flex-wrap justify-center items-center gap-6">
+            @for (icon of learningData().nameIcons; track icon) {
+              <app-svg-icon-c [iconName]="icon" [size]="28" [isViewName]="true" />
+            }
+          </div>
+        </div>
       </article>
     </section>
 
