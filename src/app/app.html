@@ -1,7 +1,7 @@
-<div class="min-h-screen  md:mx-[25%] bg-background-c flex flex-col items-center">
-  <app-navbar-c class="mt-2.5 "/>
+<div class="min-h-screen bg-background-c flex flex-col items-center w-full">
+  <app-navbar-c class="mt-2.5" />
 
-  <main class="mt-24 mx-[5%]">
+  <main class="mt-24 w-full max-w-5xl px-6 md:px-12 lg:px-0">
     <section class="flex flex-col justify-center items-center gap-8 md:gap-16 md:mt-8">
       <app-download-cv-c />
 
@@ -11,7 +11,9 @@
           <h2 class="text-[2.6rem] md:text-7xl -mt-4">Agustín Santos</h2>
         </div>
 
-        <h3 class="text-xl md:text-3xl md:mt-3 font-winky-f font-bold">Full Stack Angular & Express.js</h3>
+        <h3 class="text-xl md:text-3xl md:mt-3 font-winky-f font-bold">
+          Full Stack Angular & Express.js
+        </h3>
       </header>
 
       <div class="flex justify-center items-center gap-5">
@@ -20,160 +22,128 @@
       </div>
 
       <div class="flex justify-center items-center gap-2">
-
         @for (svg of preferredStack(); track svg.name) {
-
-          <a
-            [href]="svg.link"
-            target="_blank"
-            class="transition duration-200 hover:-translate-y-1"
-            >
-            <app-svg-icon-c
-              [iconName]="svg.name"
-              [size]="28 * iconSizeMultiplier()"
-            />
-
+          <a [href]="svg.link" target="_blank" class="transition duration-200 hover:-translate-y-1">
+            <app-svg-icon-c [iconName]="svg.name" [size]="28 * iconSizeMultiplier()" />
           </a>
-
-
         }
-
       </div>
 
-      <div class="relative" >
-
+      <div class="relative">
         <app-animated-arrow-down-c
           class="absolute left-1/2 -translate-x-1/2 z-0"
           [distance]="280"
           [duration]="3"
         />
       </div>
-
     </section>
 
-
-    <section
-      class="mt-48 pt-20 text-text-c"
-      id="experience"
-      >
-      <h3
-        class="text-xl text-center font-modak-f
-        mb-5 tracking-[0.2rem]"
-        >
-        EXPERIENCIA
-      </h3>
+    <section class="mt-48 pt-20 text-text-c" id="experience">
+      <h3 class="text-xl text-center font-modak-f mb-5 tracking-[0.2rem]">EXPERIENCIA</h3>
 
       <article>
-        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-2">EMPRESAS</h4>
+        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-8">EMPRESAS</h4>
         <div class="flex flex-col justify-center items-center gap-4">
           @for (card of experienceCompanyData(); track card.title) {
-            <app-card-experience-company-c
-              [companyData]="card"
-              class="w-full"
-            />
+            <app-card-experience-company-c [companyData]="card" class="w-full" />
           }
         </div>
-
       </article>
-<!--
-      <article>
-        <h4 class="text-xl text-center font-winky-f tracking-widest">PROYECTOS DESTACADOS</h4>
-      </article> -->
+      <article class="mt-16">
+        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-8">
+          PROYECTOS PROFESIONALES
+        </h4>
+        <div class="flex flex-col gap-10">
+          @for (project of clientProjectsData(); track project.title) {
+            <app-card-project-c [data]="project" />
+          }
+        </div>
+      </article>
 
+      <article class="mt-20">
+        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-8">PROYECTOS PERSONALES</h4>
+        <div class="flex flex-col gap-10">
+          @for (project of personalProjectsData(); track project.title) {
+            <app-card-project-c [data]="project" />
+          }
+        </div>
+      </article>
     </section>
 
-
-    <section
-      id="stack"
-      class="pt-24 text-white flex flex-col justify-center items-center gap-10"
-      >
-
+    <section id="stack" class="pt-24 text-white flex flex-col justify-center items-center gap-10">
       <h3>
-        <app-title-arrows-wrapper-c>
-          TECNOLOGÍAS
-        </app-title-arrows-wrapper-c>
+        <app-title-arrows-wrapper-c> TECNOLOGÍAS </app-title-arrows-wrapper-c>
       </h3>
 
       <article class="w-full grid grid-cols-2 gap-4 md:gap-6">
-
         @for (card of stackData(); track card.title) {
-          <app-stack-card-c
-            [dataCard]="card"
-
-          />
+          <app-stack-card-c [dataCard]="card" />
         }
 
-      </article>
+        <div
+          class="bg-second-c p-4 col-span-2 rounded-md flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 hover:scale-105 duration-400 ease-out"
+        >
+          <h4 class="text-text-c font-winky-f font-bold md:text-2xl">
+            {{ learningData().title | titlecase }}
+          </h4>
 
+          <div class="flex flex-wrap justify-center items-center gap-6">
+            @for (icon of learningData().nameIcons; track icon) {
+              <app-svg-icon-c [iconName]="icon" [size]="28" [isViewName]="true" />
+            }
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section
-      id="aboutMy"
-      class="pt-24 text-white flex flex-col justify-center items-center gap-10"
-      >
-
+    <section id="aboutMy" class="pt-24 text-white flex flex-col justify-center items-center gap-10">
       <h3>
-        <app-title-arrows-wrapper-c
-          [arrowCount]="3"
-          >
-          SOBRE MI
-        </app-title-arrows-wrapper-c>
+        <app-title-arrows-wrapper-c [arrowCount]="3"> SOBRE MI </app-title-arrows-wrapper-c>
       </h3>
 
       <article class="mt-5 md:mt-0 flex flex-col justify-center items-center gap-8 md:gap-3">
         <img
           src="avatar.webp"
           alt="avatar profile Agustín Santos"
-          class="w-36 ml-2 md:w-40 animate-float-suave "
-        >
+          class="w-36 ml-2 md:w-40 animate-float-suave"
+        />
 
         <div
-          class="mx-2 md:mx-5 text-sm md:text-base font-winky-f
-          flex flex-col md:flex-row justify-center items-start gap-5 md:gap-10"
-          >
-
+          class="mx-2 md:mx-5 text-sm md:text-base font-winky-f flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16"
+        >
           @for (colum of aboutMeData(); track $index; let i = $index) {
             <div
-              class="md:w-2/5 flex flex-col justify-center items-center gap-5"
-              [class.text-right]="i % 2 !== 0"
-              >
+              class="md:w-1/2 flex flex-col gap-6"
+              [class.md:text-right]="i === 0"
+              [class.md:items-end]="i === 0"
+            >
               @for (p of colum; track $index) {
-                <p [innerHTML]="p | highlight"></p>
+                <p [innerHTML]="p | highlight" class="leading-relaxed text-gray-300 relative">
+                  <span
+                    [class]="i === 0 ? '-right-4' : '-left-4'"
+                    class="hidden md:block absolute top-2 w-1 h-1 bg-primary-c rounded-full opacity-50"
+                  ></span>
+                </p>
               }
             </div>
           }
-
         </div>
-
       </article>
 
       <article class="w-full">
-        <h4
-          class="mt-5 text-2xl text-center font-winky-f tracking-widest mb-5"
-          >
-          ESTUDIOS
-        </h4>
+        <h4 class="mt-5 text-2xl text-center font-winky-f tracking-widest mb-5">ESTUDIOS</h4>
 
         <div class="flex flex-col gap-3">
           @for (study of studiesData(); track study.title) {
-            <app-card-study-c
-              [studyData]="study"
-            />
+            <app-card-study-c [studyData]="study" />
           }
         </div>
-
       </article>
-
-
-
     </section>
-
-
   </main>
 
   <footer
-    class="w-full h-40 md:h-60 mt-20 bg-second-c md:rounded-t-md
-    flex flex-col justify-center items-center gap-6 md:gap-10"
+    class="w-full h-40 md:h-60 mt-20 bg-second-c md:rounded-t-md flex flex-col justify-center items-center gap-6 md:gap-10"
   >
     <div class="flex justify-center items-center gap-5">
       <app-external-link-c type="linkedin" />
@@ -182,11 +152,8 @@
 
     <app-title-footer-arrow-wrapper-c
       class="text-text-c font-winky-f text-xl md:text-4xl tracking-widest font-extrabold"
-      >
+    >
       AGUSTÍN SANTOS
     </app-title-footer-arrow-wrapper-c>
-
   </footer>
-
-
 </div>
