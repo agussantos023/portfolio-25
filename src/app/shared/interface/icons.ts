@@ -44,6 +44,7 @@ export type IconName =
   | 'dokploy'
   | 'netlify'
   | 'figma'
+  | 'prisma'
   | 'bootstrap';
 
 export interface IconLink {

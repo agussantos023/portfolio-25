@@ -17,6 +17,8 @@ import { CardStudy } from './sections/about-me/card-study-c/card-study-interface
 import { CardStudyC } from './sections/about-me/card-study-c/card-study-c';
 import { TitleFooterArrowWrapperC } from './sections/footer/title-footer-arrow-wrapper-c/title-footer-arrow-wrapper-c';
 import { TitleCasePipe } from '@angular/common';
+import { ProjectData } from './shared/interface/project.interface';
+import { CardProjectC } from './shared/components/card-project-c/card-project-c';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +35,7 @@ import { TitleCasePipe } from '@angular/common';
     CardStudyC,
     TitleFooterArrowWrapperC,
     TitleCasePipe,
+    CardProjectC,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -68,6 +71,28 @@ export class App {
     {
       name: 'mysql',
       link: 'https://www.mysql.com/',
+    },
+  ]);
+
+  clientProjectsData = signal<ProjectData[]>([
+    {
+      title: 'Cerrajería Express',
+      description:
+        'Single Page Application (SPA) de alto rendimiento diseñada bajo requerimientos específicos de negocio. Desarrollo "Pixel Perfect" con enfoque en adaptabilidad total (responsive) y optimización de conversión para servicios de urgencia inmediata.',
+      image: 'projects/cerrajeroexpress.webp',
+      techStack: ['angular', 'tailwind', 'ts'],
+      link: 'https://www.cerrajeroexpress.com/',
+    },
+  ]);
+
+  personalProjectsData = signal<ProjectData[]>([
+    {
+      title: 'Tock Music',
+      description:
+        'Plataforma de streaming personal con gestión de biblioteca en la nube. Incluye procesamiento de audio con FFmpeg (transcodificación a Opus), sistema de subida secuencial con seguimiento de progreso y estado reactivo avanzado para una reproducción fluida.',
+      image: 'projects/tock-music.webp',
+      techStack: ['angular', 'tailwind', 'express', 'mysql', 'prisma', 'ts'],
+      link: 'https://tock-music.agussantos.dev/auth/login',
     },
   ]);
 
@@ -136,7 +161,17 @@ export class App {
     },
     {
       title: 'backend',
-      nameIcons: ['node', 'express', 'mysql', 'php', 'laravel', 'codeigniter', 'jwt', 'json'],
+      nameIcons: [
+        'node',
+        'express',
+        'prisma',
+        'mysql',
+        'php',
+        'laravel',
+        'codeigniter',
+        'jwt',
+        'json',
+      ],
     },
     {
       title: 'devops',

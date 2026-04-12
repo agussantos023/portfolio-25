@@ -42,17 +42,32 @@
       <h3 class="text-xl text-center font-modak-f mb-5 tracking-[0.2rem]">EXPERIENCIA</h3>
 
       <article>
-        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-2">EMPRESAS</h4>
+        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-8">EMPRESAS</h4>
         <div class="flex flex-col justify-center items-center gap-4">
           @for (card of experienceCompanyData(); track card.title) {
             <app-card-experience-company-c [companyData]="card" class="w-full" />
           }
         </div>
       </article>
-      <!--
-      <article>
-        <h4 class="text-xl text-center font-winky-f tracking-widest">PROYECTOS DESTACADOS</h4>
-      </article> -->
+      <article class="mt-16">
+        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-8">
+          PROYECTOS PROFESIONALES
+        </h4>
+        <div class="flex flex-col gap-10">
+          @for (project of clientProjectsData(); track project.title) {
+            <app-card-project-c [data]="project" />
+          }
+        </div>
+      </article>
+
+      <article class="mt-20">
+        <h4 class="text-2xl text-center font-winky-f tracking-widest mb-8">PROYECTOS PERSONALES</h4>
+        <div class="flex flex-col gap-10">
+          @for (project of personalProjectsData(); track project.title) {
+            <app-card-project-c [data]="project" />
+          }
+        </div>
+      </article>
     </section>
 
     <section id="stack" class="pt-24 text-white flex flex-col justify-center items-center gap-10">

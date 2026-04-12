@@ -45,6 +45,7 @@ export const ICON_NAME_MAP: Record<IconName, string> = {
   postgresql: 'Postgresql',
   obsidian: 'Obsidian',
   figma: 'Figma',
+  prisma: 'Prisma',
   dokploy: 'Dokploy',
   netlify: 'Netlify',
 };
