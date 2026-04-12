@@ -1,7 +1,7 @@
-<div class="min-h-screen md:mx-[25%] bg-background-c flex flex-col items-center">
+<div class="min-h-screen bg-background-c flex flex-col items-center w-full">
   <app-navbar-c class="mt-2.5" />
 
-  <main class="mt-24 mx-[5%]">
+  <main class="mt-24 w-full max-w-5xl px-6 md:px-12 lg:px-0">
     <section class="flex flex-col justify-center items-center gap-8 md:gap-16 md:mt-8">
       <app-download-cv-c />
 
@@ -81,9 +81,9 @@
         }
 
         <div
-          class="bg-second-c p-4 col-span-2 rounded-md flex flex-col md:flex-row items-center justify-center gap-6 hover:scale-105 duration-400 ease-out"
+          class="bg-second-c p-4 col-span-2 rounded-md flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 hover:scale-105 duration-400 ease-out"
         >
-          <h4 class="text-text-c font-winky-f font-bold md:text-xl">
+          <h4 class="text-text-c font-winky-f font-bold md:text-2xl">
             {{ learningData().title | titlecase }}
           </h4>
 
